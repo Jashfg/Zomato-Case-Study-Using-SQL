@@ -1,0 +1,54 @@
+#Questions
+#1)Help Zomato in identifying the cities with poor restaurant ratings??
+select  distinct city from zomato
+where rating<3.5;
+
+
+#2) Mr.roy is looking for a restaurant in kolkata which provides online delivery. Help him choose the best restaurant::
+select restaurantid , res_identify  from zomato
+where city="kolkata" and  has_online_delivery="yes" and rating>=4;
+
+
+
+#3) Help Peter in finding the best rated Restraunt for Pizza in New Delhi.::
+select  restaurantid ,Cuisines  ,rating from zomato
+where  city="new delhi" and Cuisines="pizza" and rating>=4
+order by rating desc 
+limit 1;
+
+
+#4)Enlist most affordable and highly rated restaurants city wise::
+select restaurantid,res_identify  , city , rating , price_range from zomato
+where rating>=4 and price_range between 1 and 2
+order by rating desc , price_range desc;
+
+#5)Help Zomato in identifying the restaurants with poor offline services.
+SELECT RestaurantID, Res_identify, city, rating
+FROM zomato
+WHERE Has_Table_booking = 'No' AND Is_delivering_now = 'No' and rating<4
+ORDER BY rating DESC;
+
+#6)Help zomato in identifying those cities which have atleast 3 restaurants with ratings >= 4.9
+#In case there are two cities with the same result, sort them same in alphabetical order?::
+select city, count(restaurantid) as noofrestaurant from zomato 
+where rating>=4.9
+group by city
+having count(restaurantid)>=3
+order by noofrestaurant desc,city asc;
+
+
+#7)What are the top 5 countries with most restaurants linked with Zomato?
+select  country.country_name , count(country.country_code) as total_countries from country
+inner join zomato
+on
+country.country_code=zomato.country_code
+group by country_name 
+limit 5;
+
+
+#10) List the two top 5 restaurants with highest rating maximum votes.
+SELECT RestaurantID, Res_identify, SUM(rating) AS total_rating, MAX(votes) AS max_votes
+FROM zomato
+GROUP BY RestaurantID, Res_identify
+ORDER BY total_rating DESC, max_votes DESC
+LIMIT 5;
