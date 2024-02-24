@@ -1,0 +1,35 @@
+Dear Data enthusiasts,
+
+Excited to share SQL Challenge related to the Zomato .
+
+Challenge overview:-Unlocking Zomato Insights: A Deep Drive into Restaurant Dynamics.
+
+Database Structure:
+The Challenge revolved around four key tables within the database:
+1)Country
+2)Zomato
+
+Here, I present a segment of the insights derived from  Zomato Dataset  Using MySQL
+
+key SQL Function and clauses utilized :
+In this project, I made use of serval fundamental SQL function and clauses to derive meaningful insights ,
+including:
+1)joins in SQL : To combine data from multiple tables.
+
+2)Limit clause :To retrieve a specified number of records .
+
+3)sum operations: For numerical calculations
+
+4) Order by clause: For sorting the data
+
+5) Aggregate Function: To perform calculations on groups of data
+
+6) Group by clause : To group data based on a common attribute
+
+
+
+Software's used :-
+
+My SQL-for Query building & Analysis
+
+Canva:-For presentation
